@@ -1,0 +1,137 @@
+.title {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+body {
+    background: #f4f6fa;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 32px 28px 28px 28px;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1em;
+    margin-bottom: 12px;
+    background: #f9fafb;
+    transition: border 0.2s;
+}
+
+select:focus, input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[type="button"], button[type="submit"] {
+    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+button[type="button"]:hover, button[type="submit"]:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+    box-shadow: 0 4px 16px rgba(0,123,255,0.12);
+}
+
+#added-services table, #budget-result table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #f9fafb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+#added-services th, #budget-result th {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 8px;
+    font-weight: 600;
+    border-bottom: 2px solid #0056b3;
+}
+
+#added-services td, #budget-result td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+#added-services tr:last-child td, #budget-result tr:last-child td {
+    border-bottom: none;
+}
+
+#added-services button, #budget-result button {
+    background: #e3342f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#added-services button:hover, #budget-result button:hover {
+    background: #c82333;
+}
+
+#budget-result h2 {
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+#budget-result {
+    margin-top: 24px;
+    min-height: 40px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        max-width: 98vw;
+        padding: 16px 4vw 18px 4vw;
+    }
+    .title {
+        font-size: 1.3em;
+    }
+    #added-services table, #budget-result table {
+        font-size: 0.95em;
+    }
+}

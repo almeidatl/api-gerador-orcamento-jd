@@ -8,17 +8,20 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="title">Gerador de Orçamento</h1>
+    <h1 class="title">JD - Orçamentos</h1>
     <form id="budget-form">
-        <label for="service">Serviço:</label>
-        <select id="service" name="service" required>
-            <option value="">Selecione um serviço</option>
-        </select>
-        <br><br>
-        <label for="quantity">Quantidade:</label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
-        <button type="button" id="add-service">Adicionar Serviço</button>
-        <br><br>
+        <div class="services-box">
+            <label for="service">Serviço:</label>
+            <select id="service" name="service" required>
+                <option value="">Selecione um serviço</option>
+            </select>
+            <label for="quantity">Quantidade:</label>
+            <div class="add-service-area">
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                <button type="button" id="add-service">Adicionar Serviço</button>
+            </div>
+        </div>
+        
         <div id="added-services" style="margin-bottom:2em;"></div>
         <button type="submit">Gerar Orçamento</button>
     </form>

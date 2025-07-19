@@ -31,7 +31,7 @@ label {
 }
 
 select, input[type="number"] {
-    width: 100%;
+    
     padding: 10px 12px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
@@ -46,8 +46,13 @@ select:focus, input[type="number"]:focus {
     outline: none;
 }
 
+.services-box{
+    display: flex;
+    flex-direction: column;
+}
+
 button[type="button"], button[type="submit"] {
-    background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+    background: linear-gradient(90deg, #ffd000 60%, #fcb902 100%);
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -133,5 +138,15 @@ button[type="button"]:hover, button[type="submit"]:hover {
     }
     #added-services table, #budget-result table {
         font-size: 0.95em;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        max-width: 98vw;
+        padding: 16px 4vw 18px 4vw;
+    }
+    .title {
+        font-size: 1.3em;
     }
 }

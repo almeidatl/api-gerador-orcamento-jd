@@ -8,22 +8,27 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="title">JD - Orçamentos</h1>
+    <h1 class="title">JD - Elétrica</h1>
     <form id="budget-form">
         <div class="services-box">
             <label for="service">Serviço:</label>
-            <select id="service" name="service" required>
+            <select id="service" name="service">
                 <option value="">Selecione um serviço</option>
             </select>
             <label for="quantity">Quantidade:</label>
             <div class="add-service-area">
-                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                <button type="button" id="decrease-quantity">-</button>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required style="width:60px; text-align:center;">
+                <button type="button" id="increase-quantity">+</button>
                 <button type="button" id="add-service">Adicionar Serviço</button>
             </div>
         </div>
         
         <div id="added-services" style="margin-bottom:2em;"></div>
-        <button type="submit">Gerar Orçamento</button>
+        <div class="result-buttons">
+            <button type="button" id="reset-budget" style="margin-top:10px;background:#e3342f;">Zerar Orçamento</button>
+            <button type="submit">Gerar Orçamento</button>
+        </div>
     </form>
     <div id="budget-result" style="margin-top:2em;"></div>
 </div>

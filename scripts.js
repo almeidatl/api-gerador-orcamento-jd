@@ -32,12 +32,13 @@ function updateAddedServicesList() {
         container.innerHTML = '<em>Nenhum serviço adicionado.</em>';
         return;
     }
-    let html = '<table style="width:100%;border-collapse:collapse;">';
-    html += '<tr><th style="border-bottom:1px solid #ccc;">Serviço</th><th style="border-bottom:1px solid #ccc;">Valor unitário</th><th style="border-bottom:1px solid #ccc;">Quantidade</th><th style="border-bottom:1px solid #ccc;">Subtotal</th><th></th></tr>';
+    let html = '<div class="table-responsive">';
+    html += '<table style="border-collapse:collapse;">';
+    html += '<thead><tr><th style="border-bottom:1px solid #ccc;">Serviço</th><th style="border-bottom:1px solid #ccc;">Valor unitário</th><th style="border-bottom:1px solid #ccc;">Quantidade</th><th style="border-bottom:1px solid #ccc;">Subtotal</th><th></th></tr></thead><tbody>';
     addedServices.forEach((item, idx) => {
-        html += `<tr><td>${item.name}</td><td>${formatCurrency(item.price)}</td><td>${item.quantity}</td><td>${formatCurrency(item.price * item.quantity)}</td><td><button type='button' onclick='removeService(${idx})'>Remover</button></td></tr>`;
+        html += `<tr><td data-label='Serviço'>${item.name}</td><td data-label='Valor unitário'>${formatCurrency(item.price)}</td><td data-label='Quantidade'>${item.quantity}</td><td data-label='Subtotal'>${formatCurrency(item.price * item.quantity)}</td><td data-label=' '><button type='button' onclick='removeService(${idx})'>Remover</button></td></tr>`;
     });
-    html += '</table>';
+    html += '</tbody></table></div>';
     container.innerHTML = html;
 }
 
@@ -67,6 +68,8 @@ document.getElementById('add-service').addEventListener('click', function () {
     }
     updateAddedServicesList();
     document.getElementById('budget-result').innerHTML = '';
+    document.getElementById('quantity').value = 1;
+    document.getElementById('service').value = '';
 });
 
 // Substituir o submit do form para gerar o relatório final
@@ -79,16 +82,36 @@ document.getElementById('budget-form').addEventListener('submit', function (e) {
     }
     let total = 0;
     let html = '<h2>Orçamento Final</h2>';
-    html += '<table style="width:100%;border-collapse:collapse;">';
-    html += '<tr><th style="border-bottom:1px solid #ccc;">Serviço</th><th style="border-bottom:1px solid #ccc;">Valor unitário</th><th style="border-bottom:1px solid #ccc;">Quantidade</th><th style="border-bottom:1px solid #ccc;">Subtotal</th></tr>';
+    html += '<div class="table-responsive">';
+    html += '<table style="border-collapse:collapse;">';
+    html += '<thead><tr><th style="border-bottom:1px solid #ccc;">Serviço</th><th style="border-bottom:1px solid #ccc;">Valor unitário</th><th style="border-bottom:1px solid #ccc;">Quantidade</th><th style="border-bottom:1px solid #ccc;">Subtotal</th></tr></thead><tbody>';
     addedServices.forEach(item => {
         const subtotal = item.price * item.quantity;
         total += subtotal;
-        html += `<tr><td>${item.name}</td><td>${formatCurrency(item.price)}</td><td>${item.quantity}</td><td>${formatCurrency(subtotal)}</td></tr>`;
+        html += `<tr><td data-label='Serviço'>${item.name}</td><td data-label='Valor unitário'>${formatCurrency(item.price)}</td><td data-label='Quantidade'>${item.quantity}</td><td data-label='Subtotal'>${formatCurrency(subtotal)}</td></tr>`;
     });
-    html += `<tr><td colspan='3' style='text-align:right;font-weight:bold;'>Total:</td><td style='font-size:1.2em;color:#007bff;font-weight:bold;'>${formatCurrency(total)}</td></tr>`;
-    html += '</table>';
+    html += `<tr><td colspan='3' style='text-align:right;font-weight:bold;' data-label='Total:'>Total:</td><td style='font-size:1.2em;color:#007bff;font-weight:bold;' data-label='Total:'>${formatCurrency(total)}</td></tr>`;
+    html += '</tbody></table></div>';
     document.getElementById('budget-result').innerHTML = html;
+});
+
+// Adiciona eventos aos botões de quantidade
+const quantityInput = document.getElementById('quantity');
+document.getElementById('increase-quantity').addEventListener('click', function () {
+    quantityInput.value = parseInt(quantityInput.value, 10) + 1;
+});
+document.getElementById('decrease-quantity').addEventListener('click', function () {
+    if (parseInt(quantityInput.value, 10) > 1) {
+        quantityInput.value = parseInt(quantityInput.value, 10) - 1;
+    }
+});
+
+document.getElementById('reset-budget').addEventListener('click', function () {
+    addedServices = [];
+    updateAddedServicesList();
+    document.getElementById('budget-result').innerHTML = '';
+    document.getElementById('service').value = '';
+    document.getElementById('quantity').value = 1;
 });
 
 

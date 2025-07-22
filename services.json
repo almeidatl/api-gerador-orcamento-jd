@@ -1,6 +1,6 @@
 
 [
-  {"id": 1, "name": "Adequacao/Substituição de Quadro Elétrico", "price": 600},
+  {"id": 1, "name": "Mão de Obra", "price": 400},
   {"id": 2, "name": "Adequação de Chuveiro", "price": 70},
   {"id": 3, "name": "Disjuntor 32A", "price": 14.50},
   {"id": 4, "name": "Disjuntor 40A", "price": 17.5},
@@ -12,6 +12,7 @@
   {"id": 10, "name": "Instalação de Câmera de Segurança 1", "price": 150},
   {"id": 11, "name": "Instalação de Câmera de Segurança 2", "price": 250},
   {"id": 12, "name": "Instalação de Câmera de Segurança 3", "price": 300},
-  {"id": 13, "name": "Instalação de Câmera de Segurança 4", "price": 350}
+  {"id": 13, "name": "Instalação de Câmera de Segurança 4", "price": 350},
+  {"id": 14, "name": "Adequacao/Substituição de Quadro Elétrico", "price": 600}
 ]
 

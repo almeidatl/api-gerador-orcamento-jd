@@ -142,6 +142,15 @@ button[type="button"]:hover, button[type="submit"]:hover {
     background: #c82333;
 }
 
+#reset-budget{
+    background: #e3342f;
+
+}
+
+#reset-budget:hover{
+    background: #c82333;
+}
+
 #budget-result h2 {
     color: #007bff;
     margin-top: 0;
